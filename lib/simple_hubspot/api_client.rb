@@ -27,7 +27,7 @@ module SimpleHubspot
         response_success response.body
       rescue RestClient::BadRequest => e
         response_fail e.response.body
-      rescue RestClient::NotFound => e
+      rescue RestClient::ResourceNotFound => e
         response_fail e.response.body
       end
 
