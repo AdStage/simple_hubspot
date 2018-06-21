@@ -25,6 +25,8 @@ module SimpleHubspot
                                    URI.encode_www_form(params),
                                    { content_type: 'application/x-www-form-urlencoded'}
         response_success response.body
+      rescue RestClient::Found => e
+        response_success
       rescue RestClient::BadRequest => e
         response_fail e.response.body
       rescue RestClient::ResourceNotFound => e
